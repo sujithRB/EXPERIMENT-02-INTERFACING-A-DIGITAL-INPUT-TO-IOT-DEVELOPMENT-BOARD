@@ -2,12 +2,13 @@
 
 
 **DATE:**
-
+28/08/2025
 **NAME:**
-
+Sujith R B
 **ROLL NO:**
-
+**25009845**
 **DEPARTMENT:**
+CSE(CYB)
 
 ## Aim
 
@@ -102,10 +103,48 @@ IR technology is used in a wide range of wireless applications which includes re
 ## STM 32 CUBE PROGRAM
 
 ```
-// Your STM 32 CUBE Program code here
+int main(void)
+{
+  
+  HAL_Init();
+  
+  SystemClock_Config();
+
+  MX_GPIO_Init();
+    
+  while (1)
+  {
+	  IRPAIR();
+  }
+}
+
+void IRPAIR()
+{
+	IRSENSOR = HAL_GPIO_ReadPin(GPIOB,GPIO_PIN_4);
+	if(IRSENSOR == 0)
+	{
+		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
+		HAL_Delay(2000);
+		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);
+		HAL_Delay(500);
+	}
+	else
+	{
+		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);
+		HAL_Delay(2000);
+	}
+}
 ```
 
 ## OUTPUT
+**OBJECT NOT DETECTED**
+
+![426866622-2704a7cc-1ef4-41c3-b879-b20a0b896934](https://github.com/user-attachments/assets/7e0e65ba-4a50-437f-a992-254ce090783a)
+**OBJECT DETECTED**
+
+![426867055-5b98d54d-0d3f-4dc5-b2b0-a2680b2b6d82](https://github.com/user-attachments/assets/b899fc79-8154-4168-a392-ccf4372508ea)
+
+
 
 ## Result
 
